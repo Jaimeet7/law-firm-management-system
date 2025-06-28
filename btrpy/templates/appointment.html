@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags%}
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <div class="col-md-12">
+            <div class="card card-body">
+                <div class="row">
+                    <h1>Appointment</h1>
+                    <br>
+                    <div class="col-md-6">
+                        {{form.name | as_crispy_field}}
+                        <br>
+                        {{form.email | as_crispy_field}}
+                        <br>   
+                        {{form.case_type| as_crispy_field}}
+                        <br> 
+                        {{form.case_doc | as_crispy_field}}
+                        <br>
+                        {{form.court_name | as_crispy_field}}
+                        <br>
+                    </div>
+                    <div class="col-md-6">
+                        {{form.phone | as_crispy_field}}
+                        <br> 
+                        {{form.address | as_crispy_field}}
+                        <br>
+                        {{form.description | as_crispy_field}}
+                        <br>
+                        {{form.no_of_hearings | as_crispy_field}}
+                        <br>
+                        {{form.fees | as_crispy_field}}
+                        <br>
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-primary" value="SUBMIT" style="width: 100px;">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock%}

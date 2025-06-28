@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-3">
+    <div class="jumbotron">
+        <div class="col-md-12">
+            <div class="card card-body">
+                <h1>Update Form</h1>
+                <form action="{% url 'update' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    {{form1.as_p}}
+                    <button type="sumbit" class="btn btn-info">Update</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

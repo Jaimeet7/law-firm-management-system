@@ -1,0 +1,55 @@
+{% include 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .description{
+        display: flex;
+        flex-direction: column;
+    }
+    img{
+        height: 200px;
+        width: 250px;
+    }
+    .imge{
+        display: flex;
+        justify-content: space-evenly;
+    }
+</style>
+<div class="container">
+    <div class="jumbotron">
+        <div class="col-md-12">
+            <h1>Advocate</h1>
+            <br>
+            <div class="card card body">
+                <br>
+                <h1 style="margin-left: 20px;">About</h1>
+                <p align="center" style="width: 90%; text-align: justify; margin-left: 50px; font-size: 1.2rem;">Pearson Hardman LLP is a prestigious corporate law firm headquartered in Midtown Manhattan at 601 E 54th Street, New York City. Founded in 2003 by managing partners Daniel Hardman and Jessica Pearson, the firm quickly established itself as one of the top-tier legal outfits in the city. Pearson Hardman is recognized for its exclusive recruitment policy—hiring only Harvard Law graduates—and its focus on high-stakes corporate matters, especially in mergers & acquisitions, litigation, and financial regulation. The firm is known for its rigorous work culture, hierarchical structure, and emphasis on loyalty and performance.
+                </p>
+                <br>
+                <h2>&nbsp; Cases we under take</h2>
+                
+                <div class="row" style="padding: 10px;">
+                    {% for i in form%}
+                        <div class="col col-md-6">
+                            <br>
+                            <div class="card card-body">
+                                <div class="description"><h1 style="text-align: center;">{{i.case_title}}</h1>
+                                    <br>
+                                        <div class="imge">
+                                        <img src="{{ i.case_img.url }}" alt="no img">
+                                        <h6 style="margin-left: 10px; height: 150px; text-align: justify; margin-top: 40px;">{{i.case_description}}</h6>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="btn-row" style="display: flex; align-items: center; justify-content: space-around;">
+                    <a class="btn btn-light mt-3" href="{% url 'enquiry' %}" style="border: 1px black solid;">Enquiry</a>
+                    <a class="btn btn-light mt-3" href="{% url 'appointment' %}" style="border: 1px black solid;">Book an appointment</a>
+                </div>
+           </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

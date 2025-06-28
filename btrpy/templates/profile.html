@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    th{
+        border: 1px black solid;
+    }
+    tr{
+        align-items: center;
+        border: 1px black solid;
+    }
+    td{
+        border: 1px black solid ;
+    }
+</style>
+<div class="container mt-3">
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Profile</h1>
+                <br>
+                <div class="card card-body">
+                    <h5>User: {{user.username}}</h5>
+                    <h5>Email: {{user.email}}</h5>
+                    <h5>Phone: {{user.userprofile.phno}}</h5>
+                    <h5>Address: {{user.userprofile.address}}</h5>
+                    <h5>Street: {{user.userprofile.street}}</h5>
+                    <h5>City: {{user.userprofile.city}}</h5>
+                    <h5>State: {{user.userprofile.state}}</h5>
+                    <h5>Zipcode: {{user.userprofile.zipcode}}</h5>
+                    <a class="btn btn-info" href="{% url 'update' %}">Update</a>
+                </div>
+            </div>
+            <div class="col-md-6 mt-5">
+                <div class="card card-body">
+                    {% if user.userprofile.profile_pic %}
+                    <img src="{{user.userprofile.profile_pic.url}}" alt="no img" style="height: 450px;" class="img-fluid">
+                    {% else %}
+                    <p> No profile picture to be uploaded </p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <br>
+        <h1> My Appointment </h1>
+        <div class="row">
+            <div class="col col-md-12">
+                <div class="card card-body">
+                    <table border="1px" style="border-collapse:collapse ;">
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Address</th>
+                            <th>Street</th>
+                            <th>City</th>
+                            <th>State</th>
+                            <th>Zipcode</th>
+                        </tr>
+                        <tr>
+                            <td>{{user.username}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

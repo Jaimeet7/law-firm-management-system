@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <div class="col-md-12">
+            <h1>Lawyers</h1>
+            <br>
+            <div class="card card-body">
+                <div class="row">
+                    {% for i in form %}
+                        <div class="col-md-6">
+                            <br>
+                            <div class="card card-body" style="background-color: beige;">
+                                <h4>{{i.name}}</h4>
+                                <div style="display: flex; justify-content: space-evenly;">
+                                    <img src="{{ i.lawyer_img.url }}" alt="no image" style="width: 250px; height: 250px; border: 1px black solid; border-radius: 50%;">
+                                    <div style="display: flex; flex-direction: column;">
+                                        <br><br>
+                                        <p><b>Email:</b> {{i.email}}</p>
+                                        <p><b>Experience:</b> {{i.years_of_experience}}</p>
+                                        <p><b>Specialization:</b> {{i.specialization}}</p>
+                                        <p><b>Total cases:</b> {{i.Total_cases}}</p>
+                                    </div>
+                                </div>
+                                <br>
+                                <p>{{i.Description}}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

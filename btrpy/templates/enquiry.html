@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %} 
+<br>
+<div class="container mt-3">
+    <div class="jumbortron">
+        <div class="col col-md-12">
+            <div class="card card-body">
+                <div class="row">
+                <h1>Enquiry</h1>
+                <div class="col-md-6">
+                    <form method="POST" action="{% url 'enquiry'%}" enctype="multipart/form-data">
+                        {{form.name | as_crispy_field}}
+                        <br>
+                        <br>
+                        {{form.email | as_crispy_field}}
+                        <br>
+                        <br>
+                        {{form.case_type | as_crispy_field}}
+                        <br>
+                        <br>
+                        {{form.document | as_crispy_field}}
+                        <br>
+                        <br>
+                        <input type="submit" class="btn btn-primary" value="btn-primary">
+                    </div>
+                    <div class="col-md-6">
+                        {{form.phone | as_crispy_field}}
+                        <br>
+                        {{form.address | as_crispy_field}}
+                        <br>
+                        {{form.description | as_crispy_field}}
+                        <br>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
